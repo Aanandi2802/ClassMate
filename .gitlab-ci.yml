@@ -1,0 +1,18 @@
+image: node:latest
+
+stages:
+  - build
+
+build-deploy-classmate:
+  stage: build
+  script:
+    - cd frontend
+    - npm install
+    - npm run build
+    - npm install -g netlify-cli
+    - netlify deploy --prod --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --dir build/
+  only:
+    changes:
+      - frontend/**/*
+    refs:
+      - main

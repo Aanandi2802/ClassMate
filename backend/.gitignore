@@ -1,0 +1,6 @@
+/node_modules
+/dist
+/.idea
+# Ignore package-lock.json
+package-lock.json
+/.env
